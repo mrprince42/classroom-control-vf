@@ -50,6 +50,8 @@ node default {
    # mode    => '0644',
    # content => "I learned the difference between namevar and titles in puppet code.",
    #}
-   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd": }
+   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    path    => '/urs/local/bin/cowsay',
+    creates => '/etc/motd',
     }
 }
