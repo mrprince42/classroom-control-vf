@@ -52,6 +52,6 @@ node default {
    #}
    exec { '/etc/motd':
     path    => '/etc/motd',
-    creates => "cosway 'Welcome to ${::fqdn}!' > /etc/motd,
+    creates => "cosway 'Welcome to ${::fqdn}!' > /etc/motd",
     }
 }
