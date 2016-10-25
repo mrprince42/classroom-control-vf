@@ -51,7 +51,7 @@ node default {
    # content => "I learned the difference between namevar and titles in puppet code.",
    #}
    exec { '/etc/motd':
-    path    => '/etc/motd':
+    path    => '/etc/motd',
     creates => "cosway 'Welcome to ${::fqdn}!' > /etc/motd,
     }
 }
