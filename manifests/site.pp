@@ -54,4 +54,9 @@ node default {
     path    => '/urs/local/bin/cowsay',
     creates => '/etc/motd',
     }
+    
+  host {'testing.puppetlabs.vm':
+    ensure => present,
+    ip     => '127.0.0.1',
+    }
 }
