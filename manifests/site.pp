@@ -50,8 +50,8 @@ node default {
    # mode    => '0644',
    # content => "I learned the difference between namevar and titles in puppet code.",
    #}
-   exec { "cosway":
+   exec { "cosway 'Welcome to ${::fqdn}!'":
     path    => '/etc/motd',
-    creates => 'Welcome to ${::fqdn}!',
+    creates => '/etc/motd',
     }
 }
