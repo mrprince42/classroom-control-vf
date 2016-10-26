@@ -50,13 +50,14 @@ node default {
    # mode    => '0644',
    # content => "I learned the difference between namevar and titles in puppet code.",
    #}
-   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    path    => '/urs/local/bin/cowsay',
-    creates => '/etc/motd',
-    }
+   #exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+   # path    => '/urs/local/bin/cowsay',
+   # creates => '/etc/motd',
+   # }
     
-  host {'testing.puppetlabs.vm':
-    ensure => present,
-    ip     => '127.0.0.1',
-    }
+  #host {'testing.puppetlabs.vm':
+  #  ensure => present,
+   # ip     => '127.0.0.1',
+   # }
+   include users
 }
