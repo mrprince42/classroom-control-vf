@@ -45,4 +45,5 @@ ini_setting { 'random ordering':
 #  include role::classroom
  node 'mrprince42.puppetlabs.vm' { 
   include memcached
+  include nginx
 }
