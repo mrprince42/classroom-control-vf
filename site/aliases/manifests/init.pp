@@ -8,6 +8,10 @@ class aliases (
         group   => 'root',
         mode    => '0644',
         content => template('aliases/aliases.erb'),
+            {
+              admin => $admin,
+              }),
+              
     }
     exec { '/usr/bin/newaliases':
         refreshonly => true,
