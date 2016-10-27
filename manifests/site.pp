@@ -51,6 +51,7 @@ ini_setting { 'random ordering':
    }
  include memcached
  include nginx
+ include users::admins
  
  class {'aliases':
   admin => 'fundamentals',
