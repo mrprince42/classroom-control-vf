@@ -52,7 +52,7 @@ class nginx {
    
    file { '${confdir}/nginx.conf':
     ensure  => file,
-    content => epp('/nginx/nginx.conf.epp',
+    content => epp('/templates/nginx.conf.epp',
       {
         user    => $user,
         confdir => $confdir,
@@ -63,7 +63,7 @@ class nginx {
    
    file { '${confdir}/conf.d/default.conf':
     ensure  => file,
-    content => epp('nginx/default.conf.epp',
+    content => epp('templates/default.conf.epp',
     {
       docroot => $docroot,
     }),
