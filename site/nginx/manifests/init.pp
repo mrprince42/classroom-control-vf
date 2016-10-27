@@ -32,8 +32,8 @@ class nginx {
    }
 
   File {
-   owner => 'root',
-   group => 'root',
+   owner => $owner,
+   group => $group,
    mode => '0664',
   }
   
@@ -41,27 +41,33 @@ class nginx {
     ensure => present,
    }
    
-   file { [ '/var/www', '/etc/nginx/conf.d' ]:
+   file { [ $docroot, '${confdir}/conf.d' ]:
     ensure => directory,
    }
    
-   file { '/var/www/index.html':
+   file { '${docroot}/index.html':
     ensure => file,
     source => 'puppet:///modules/nginx/index.html',
    }
    
-   file { '/etc/nginx/nginx.conf':
-    ensure => file,
-    source => 'puppet:///modules/nginx/nginx.conf',
-    require => Package['nginx'],
-    notify => Service['nginx'],
+   file { '${confdir}/nginx.conf':
+    ensure  => file,
+    content => epp('nginx.nginx.conf.epp',
+      {
+        user    => $user,
+        confdir => $confdir,
+        logdir  => $logdir,
+        }),
+     notify => Service['nginx'],
    }
    
-   file { '/etc/nginx/conf.d/default.conf':
-    ensure => file,
-    source => 'puppet:///modules/nginx/default.conf',
-    notify => Service['nginx'],
-    require => Package['nginx'],
+   file { '${confdir}/conf.d/default.conf':
+    ensure  => file,
+    content => epp('nginx.default.conf.epp',
+    {
+      docroot => $docroot,
+    }),
+    notify  => Service['nginx'],
    }
    
    service { 'nginx':
