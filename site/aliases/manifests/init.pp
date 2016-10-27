@@ -7,7 +7,7 @@ class aliases (
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        content => template('aliases/aliases.erb'),
+        content => template('aliases/aliases.epp'),
             {
               admin => $admin,
               }),
