@@ -43,7 +43,12 @@ ini_setting { 'random ordering':
   # Example:
   #   class { 'my_class': }
 #  include role::classroom
- node 'mrprince42.puppetlabs.vm' { 
-  include memcached
-  include nginx
+ #node 'mrprince42.puppetlabs.vm' { 
+ node default {
+  if $::virtual != 'physical' {
+   $vmname = capitalize($::virtual)
+   notify {"This is a ${vmname} virtual machine.":}
+   }
+ include memcached
+ include nginx
 }
