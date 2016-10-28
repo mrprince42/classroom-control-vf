@@ -56,6 +56,6 @@ ini_setting { 'random ordering':
      notify {$message:}
    
    class {'nginx':
-    $docroot = '/tmp/doc'
+    docroot = '/tmp/doc'
     }
 }
