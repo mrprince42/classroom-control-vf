@@ -46,7 +46,7 @@ ini_setting { 'random ordering':
  #node 'mrprince42.puppetlabs.vm' { 
  node default {
    include memcached
-   include nginx
+   #include nginx
    include users::admins
  
    class {'aliases':
