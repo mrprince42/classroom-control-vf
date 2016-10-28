@@ -31,6 +31,13 @@ class nginx (
     'debian'  => 'www-data',
     'windows' => 'nobody',
   }
+  
+  # Fall back to default if root is not set
+  $docroot = $root ? {
+    undef   => $default_docroot,
+    default => $root,
+   }
+    
   File {
     owner => $owner,
     group => $group,
