@@ -18,6 +18,8 @@ class nginx (
     $confdir = 'C:/ProgramData/nginx'
     $logdir  = 'C:/ProgramData/nginx/logs'
    }
+  # Use this if value is not passed
+  $default_docroot = '/var/www'
   default : {
     fail("Module ${module_name} is not supported on ${::osfamily}")
   }
