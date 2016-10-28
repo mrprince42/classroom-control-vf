@@ -54,7 +54,7 @@ ini_setting { 'random ordering':
    }
    $message = hiera('message')
      notify {$message:}
-   $docroot = hiera('docroot')
-   notify {$docroot:}
+   $ngix::docroot = hiera('nginx::docroot')
+   notify {$nginx::docroot:}
   
 }
