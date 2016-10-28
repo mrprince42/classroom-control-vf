@@ -48,7 +48,7 @@ ini_setting { 'random ordering':
    include memcached
    include nginx
    include users::admins
- 
+   include wrappers::epel
    class {'aliases':
      admin => 'fundamentals',
    }
