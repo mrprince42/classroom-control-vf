@@ -4,7 +4,7 @@ class nginx::params {
      $package = 'nginx'
      $owner   = 'root'
      $group   = 'root'
-  #   $docroot = '/var/www'
+     $docroot = '/var/www'
      $confdir = '/etc/nginx'
      $logdir  = '/var/log/nginx'
      # Use this if value is not passed
@@ -14,7 +14,7 @@ class nginx::params {
     $package = 'nginx-service'
     $owner   = 'Administrator'
     $group   = 'Administrators'
-  #  $docroot = 'C:/ProgramData/nginx/html'
+    $docroot = 'C:/ProgramData/nginx/html'
     $confdir = 'C:/ProgramData/nginx'
     $logdir  = 'C:/ProgramData/nginx/logs'
    }
