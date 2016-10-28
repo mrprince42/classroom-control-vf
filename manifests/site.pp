@@ -45,18 +45,17 @@ ini_setting { 'random ordering':
 #  include role::classroom
  #node 'mrprince42.puppetlabs.vm' { 
  node default {
-  if $::virtual != 'physical' {
-   $vmname = capitalize($::virtual)
-   notify {"This is a ${vmname} virtual machine.":}
-   }
- include memcached
- include nginx
- include users::admins
+   include memcached
+   include nginx
+   include users::admins
  
-  class {'aliases':
-    admin => 'fundamentals',
-  }
-  $message = hiera('message')
-    notify {$message:}
-  
+   class {'aliases':
+     admin => 'fundamentals',
+   }
+   $message = hiera('message')
+     notify {$message:}
+     
+   class {'nginx':
+     root => '/var/www/html',
+   }
 }
