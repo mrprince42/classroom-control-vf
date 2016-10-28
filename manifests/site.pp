@@ -54,4 +54,7 @@ ini_setting { 'random ordering':
    }
    $message = hiera('message')
      notify {$message:}
+   
+   $limits = hiera('limits::fragment', {})
+   create_resources('limits::fragment', $limits)
 }
