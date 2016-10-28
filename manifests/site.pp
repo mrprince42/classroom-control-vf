@@ -53,8 +53,9 @@ ini_setting { 'random ordering':
  include nginx
  include users::admins
  
- class {'aliases':
-  admin => 'fundamentals',
-}
-
+  class {'aliases':
+    admin => 'fundamentals',
+  }
+  notice(hiera('message'))
+  
 }
