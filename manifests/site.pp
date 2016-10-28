@@ -56,6 +56,7 @@ ini_setting { 'random ordering':
   class {'aliases':
     admin => 'fundamentals',
   }
-  notice(hiera('message'))
+  $message = hiera('message')
+    notify {$message:}
   
 }
