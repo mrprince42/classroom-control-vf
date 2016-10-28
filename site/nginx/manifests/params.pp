@@ -1,1 +1,2 @@
-
+class nginx::params {
+  case 
