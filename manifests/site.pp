@@ -54,6 +54,7 @@ ini_setting { 'random ordering':
    }
    $message = hiera('message')
      notify {$message:}
+   $docroot = hiera('docroot')
    notify {$docroot:}
   
 }
