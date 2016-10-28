@@ -1,2 +1,2 @@
 ---
-message: Overriding message key in hiera
+message: 'Overriding message key in hiera'
