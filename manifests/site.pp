@@ -45,16 +45,5 @@ ini_setting { 'random ordering':
 #  include role::classroom
  #node 'mrprince42.puppetlabs.vm' { 
  node default {
-   include memcached
-   include nginx
-   include users::admins
-   include wrappers::epel
-   class {'aliases':
-     admin => 'fundamentals',
-   }
-   $message = hiera('message')
-     notify {$message:}
-   
-   $limits = hiera('limits::fragment', {})
-   create_resources('limits::fragment', $limits)
+  include profile::capstone
 }
